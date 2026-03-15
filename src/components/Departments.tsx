@@ -30,19 +30,23 @@ export default function Departments() {
               transition={{ delay: index * 0.1 }}
               className="group border-b border-white/10 py-12 flex flex-col md:flex-row items-start md:items-center gap-12"
             >
-              <div className="flex-1">
+              <div className="flex-1 relative">
+                <div className="absolute -left-8 top-0 bottom-0 w-1 bg-white opacity-0 group-hover:opacity-100 transition-opacity" />
                 <p className="text-[10px] font-bold text-white/40 tracking-[0.2em] mb-4 uppercase">{dept.date}</p>
-                <h3 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tighter uppercase group-hover:text-gray-300 transition-colors leading-tight">
+                <h3 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tighter uppercase group-hover:translate-x-2 transition-transform leading-tight">
                   {dept.name}
                 </h3>
                 <p className="text-[10px] font-bold text-white/40 tracking-[0.2em] mb-8 uppercase">{dept.fullName}</p>
                 
                 <Link to={`/department/${dept.id}`}>
-                  <button className="btn-minimal">EXPLORE DEPARTMENT</button>
+                  <button className="btn-minimal group-hover:bg-white group-hover:text-black">
+                    ENTER ARENA
+                  </button>
                 </Link>
               </div>
 
-              <div className="w-full md:w-80 h-48 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-500 border border-white/10">
+              <div className="w-full md:w-80 h-48 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-500 arena-border">
+                <div className="scanline" />
                 <img
                   src={dept.image}
                   alt={dept.name}

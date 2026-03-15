@@ -52,16 +52,21 @@ const ThematicBackground = ({ deptId }: { deptId: string }) => {
         <motion.div
           animate={{
             rotate: 360,
-            scale: [1, 1.1, 1]
+            scale: [1, 1.2, 1]
           }}
           transition={{
-            duration: 30,
+            duration: 15, // Faster rotation for competition feel
             repeat: Infinity,
             ease: "linear"
           }}
         >
           <dept.icon size={800} strokeWidth={0.1} className={dept.textColor} />
         </motion.div>
+      </div>
+
+      {/* Scanline Overlay */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        <div className="scanline" />
       </div>
 
       {/* Radial Glow */}
@@ -88,7 +93,7 @@ export default function DepartmentDetail() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`lg:col-span-8 relative p-8 md:p-16 rounded-[3rem] border ${dept.borderColor} bg-zinc-950/60 backdrop-blur-3xl overflow-hidden group shadow-2xl shadow-current/5`}
+              className={`lg:col-span-8 relative p-8 md:p-16 rounded-[1rem] arena-border bg-zinc-950/60 backdrop-blur-3xl overflow-hidden group shadow-2xl shadow-current/5`}
             >
               <div className="relative z-10">
                 <div className="flex items-center gap-6 mb-10">
