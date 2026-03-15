@@ -1,90 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Brain, Code, Zap, Building, Briefcase, Terminal, Settings, BookOpen, ArrowRight } from 'lucide-react';
 
 const departments = [
-  { id: 'aids', name: 'AI & DS', fullName: 'AI & Data Science', icon: Brain, color: 'text-emerald-400', borderColor: 'hover:border-emerald-500/50', accent: 'bg-emerald-500/10' },
-  { id: 'civil', name: 'Civil', fullName: 'Civil Engineering', icon: Building, color: 'text-orange-400', borderColor: 'hover:border-orange-500/50', accent: 'bg-orange-500/10' },
-  { id: 'computer', name: 'Computer', fullName: 'Computer Engineering', icon: Code, color: 'text-blue-400', borderColor: 'hover:border-blue-500/50', accent: 'bg-blue-500/10' },
-  { id: 'etc', name: 'E&TC', fullName: 'Electronics & Telecomm', icon: Zap, color: 'text-yellow-400', borderColor: 'hover:border-yellow-500/50', accent: 'bg-yellow-500/10' },
-  { id: 'fe', name: 'FE', fullName: 'First Year Engineering', icon: BookOpen, color: 'text-pink-400', borderColor: 'hover:border-pink-500/50', accent: 'bg-pink-500/10' },
-  { id: 'mba', name: 'MBA', fullName: 'Business Administration', icon: Briefcase, color: 'text-purple-400', borderColor: 'hover:border-purple-500/50', accent: 'bg-purple-500/10' },
-  { id: 'mca', name: 'MCA', fullName: 'Computer Applications', icon: Terminal, color: 'text-indigo-400', borderColor: 'hover:border-indigo-500/50', accent: 'bg-indigo-500/10' },
-  { id: 'mech', name: 'Mech', fullName: 'Mechanical Engineering', icon: Settings, color: 'text-red-400', borderColor: 'hover:border-red-500/50', accent: 'bg-red-500/10' },
+  { id: 'aids', name: 'AI & DS', fullName: 'AI & Data Science', date: 'MARCH 15, 2026', image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400' },
+  { id: 'civil', name: 'Civil', fullName: 'Civil Engineering', date: 'MARCH 15, 2026', image: 'https://images.unsplash.com/photo-1503387762-592dee58c160?auto=format&fit=crop&q=80&w=400' },
+  { id: 'computer', name: 'Computer', fullName: 'Computer Engineering', date: 'MARCH 16, 2026', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400' },
+  { id: 'etc', name: 'E&TC', fullName: 'Electronics & Telecomm', date: 'MARCH 16, 2026', image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=400' },
+  { id: 'fe', name: 'FE', fullName: 'First Year Engineering', date: 'MARCH 17, 2026', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=400' },
+  { id: 'mba', name: 'MBA', fullName: 'Business Administration', date: 'MARCH 17, 2026', image: 'https://images.unsplash.com/photo-1454165833767-027ffea7025c?auto=format&fit=crop&q=80&w=400' },
+  { id: 'mca', name: 'MCA', fullName: 'Computer Applications', date: 'MARCH 18, 2026', image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=400' },
+  { id: 'mech', name: 'Mech', fullName: 'Mechanical Engineering', date: 'MARCH 18, 2026', image: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=400' },
 ];
 
 export default function Departments() {
   return (
-    <section className="py-24 px-6 bg-zinc-950/50 border-y border-white/5 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
+    <section className="py-32 px-8 md:px-24 bg-black border-t border-white/10">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-center text-4xl font-black text-white mb-24 tracking-tighter uppercase">
+          DEPARTMENTS
+        </h2>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col items-center mb-20">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-[10px] font-mono uppercase tracking-[0.5em] text-white/40 mb-4"
-          >
-            Academic Innovation
-          </motion.p>
-          <motion.h2 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase"
-          >
-            Departments
-          </motion.h2>
-          <motion.div 
-            initial={{ width: 0 }}
-            whileInView={{ width: 80 }}
-            className="h-1 bg-emerald-500 mt-6 rounded-full"
-          />
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex flex-col">
           {departments.map((dept, index) => (
-            <Link key={dept.id} to={`/department/${dept.id}`} className="group">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{
-                  y: -10,
-                  rotateX: 5,
-                  rotateY: 5,
-                  transition: { duration: 0.3 }
-                }}
-                className={`relative h-full p-8 rounded-[2.5rem] border border-white/10 bg-zinc-900/40 backdrop-blur-xl transition-all duration-500 overflow-hidden group-hover:border-white/20 group-hover:shadow-2xl group-hover:shadow-current/10`}
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                {/* Accent Glow */}
-                <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full blur-[60px] opacity-0 group-hover:opacity-40 transition-opacity duration-500 ${dept.accent}`} />
+            <motion.div
+              key={dept.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="group border-b border-white/10 py-12 flex flex-col md:flex-row items-start md:items-center gap-12"
+            >
+              <div className="flex-1">
+                <p className="text-[10px] font-bold text-white/40 tracking-[0.2em] mb-4 uppercase">{dept.date}</p>
+                <h3 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tighter uppercase group-hover:text-gray-300 transition-colors leading-tight">
+                  {dept.name}
+                </h3>
+                <p className="text-[10px] font-bold text-white/40 tracking-[0.2em] mb-8 uppercase">{dept.fullName}</p>
                 
-                <div className="relative z-10" style={{ transform: 'translateZ(20px)' }}>
-                  <div className={`w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                    <dept.icon className={`w-7 h-7 ${dept.color}`} />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">{dept.name}</h3>
-                  <p className="text-xs text-white/40 font-mono uppercase tracking-widest mb-8 leading-relaxed">
-                    {dept.fullName}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 text-white/40 group-hover:text-white transition-all duration-300">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Explore Event</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
+                <Link to={`/department/${dept.id}`}>
+                  <button className="btn-minimal">EXPLORE DEPARTMENT</button>
+                </Link>
+              </div>
 
-                {/* Decorative Icon Background */}
-                <div className="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
-                  <dept.icon size={120} strokeWidth={1} className={dept.color} />
-                </div>
-              </motion.div>
-            </Link>
+              <div className="w-full md:w-80 h-48 overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-500 border border-white/10">
+                <img
+                  src={dept.image}
+                  alt={dept.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
