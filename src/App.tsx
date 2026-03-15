@@ -13,7 +13,7 @@ import CursorEffect from './components/CursorEffect';
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen font-sans selection:bg-emerald-500/30 selection:text-emerald-200 cursor-none">
+      <div className="min-h-screen font-sans selection:bg-white selection:text-black cursor-none bg-black">
         <CursorEffect />
         
         {/* 3D Background */}
@@ -27,16 +27,15 @@ export default function App() {
           </Routes>
         </div>
 
-        {/* Aesthetic Overlays */}
+        {/* Minimal Accents */}
         <div className="fixed inset-0 pointer-events-none z-20">
-          {/* Corner Accents */}
-          <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-emerald-500/30" />
-          <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-emerald-500/30" />
-          <div className="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-emerald-500/30" />
-          <div className="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-emerald-500/30" />
+          <div className="absolute top-8 left-8 w-8 h-[1px] bg-white/20" />
+          <div className="absolute top-8 left-8 w-[1px] h-8 bg-white/20" />
+
+          <div className="absolute top-8 right-8 w-8 h-[1px] bg-white/20" />
+          <div className="absolute top-8 right-8 w-[1px] h-8 bg-white/20" />
         </div>
       </div>
     </Router>
   );
 }
-

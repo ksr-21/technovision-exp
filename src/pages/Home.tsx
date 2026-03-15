@@ -16,50 +16,62 @@ export default function Home() {
 
   return (
     <>
-      {/* Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-emerald-500 origin-left z-50"
-        style={{ scaleX }}
-      />
-
       <Header />
       
-      <main>
-        {/* Hero Section with Title Overlay */}
-        <section className="h-[60vh] flex items-center justify-center px-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 pointer-events-none" />
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="text-center relative z-10"
-          >
-            <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter mb-4">
-              TECHNO<motion.span
-                animate={{
-                  color: ['#10b981', '#3b82f6', '#10b981'],
-                  textShadow: [
-                    '0 0 20px rgba(16,185,129,0.3)',
-                    '0 0 40px rgba(59,130,246,0.5)',
-                    '0 0 20px rgba(16,185,129,0.3)'
-                  ]
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="text-emerald-500"
-              >VISION</motion.span> 2026
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-400 font-light tracking-widest uppercase">
-              Innovate • Integrate • Inspire
-            </p>
-          </motion.div>
+      <main className="bg-black">
+        {/* Hero Section */}
+        <section className="min-h-[80vh] flex flex-col justify-center px-8 md:px-24 relative overflow-hidden pt-20">
+          <div className="max-w-7xl mx-auto w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6"
+            >
+              <span className="text-[10px] font-bold tracking-[0.4em] text-white/60">WE ARE JSPM NTC</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="text-6xl md:text-[120px] font-black text-white leading-[0.9] tracking-tighter mb-12"
+            >
+              THE FUTURE OF <br />
+              <span className="text-white">TECHNOVISION.</span>
+            </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              <button className="btn-minimal">
+                EXPLORE EVENTS
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Pagination Indicators (Visual only) */}
+          <div className="absolute bottom-12 left-8 flex gap-2">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-white' : 'bg-white/20'}`} />
+            ))}
+          </div>
         </section>
 
         <Founders />
-        <Departments />
-        <Leadership />
+        <div id="departments">
+          <Departments />
+        </div>
+        <div id="leadership">
+          <Leadership />
+        </div>
       </main>
 
-      <Footer />
+      <div id="contact">
+        <Footer />
+      </div>
     </>
   );
 }
