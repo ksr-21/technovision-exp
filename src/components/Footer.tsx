@@ -29,9 +29,21 @@ export default function Footer() {
             <div>
               <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-8">Social</h4>
               <ul className="space-y-4">
-                {['LinkedIn', 'Twitter', 'Instagram', 'Email'].map(item => (
-                  <li key={item}>
-                    <a href="#" className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">{item}</a>
+                {[
+                  { name: 'LinkedIn', url: 'https://www.linkedin.com/feed/' },
+                  { name: 'Twitter', url: '#' },
+                  { name: 'Instagram', url: 'https://www.instagram.com/kunalsinghrajput_21?igsh=b21objl3dXprZHA2' },
+                  { name: 'Email', url: '#' }
+                ].map(item => (
+                  <li key={item.name}>
+                    <a
+                      href={item.url}
+                      target={item.url.startsWith('http') ? "_blank" : undefined}
+                      rel={item.url.startsWith('http') ? "noopener noreferrer" : undefined}
+                      className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"
+                    >
+                      {item.name}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -44,6 +56,14 @@ export default function Footer() {
             <span className="text-white font-black text-xl tracking-tighter">JSPM.</span>
             <span className="text-white/20 text-[10px] font-bold uppercase tracking-widest">© 2026</span>
           </div>
+          <a
+            href="https://www.linkedin.com/feed/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/20 text-[10px] font-bold uppercase tracking-[0.4em] hover:text-white transition-colors"
+          >
+            MADE BY KUNAL SANJIT SINGH
+          </a>
           <div className="text-white/20 text-[10px] font-bold uppercase tracking-[0.4em]">
             NARHE TECHNICAL CAMPUS • PUNE • INDIA
           </div>
